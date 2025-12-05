@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiJar - Delete Your Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --warning: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .steps {
+            list-style: none;
+            padding: 0;
+            counter-reset: step-counter;
+        }
+
+        .steps li {
+            position: relative;
+            padding: 20px 20px 20px 70px;
+            margin-bottom: 16px;
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .steps li::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .steps li strong {
+            color: var(--text);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .steps li span {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-box h3 {
+            color: var(--warning);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box p {
+            margin: 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .data-table td {
+            color: var(--text-muted);
+        }
+
+        .deleted {
+            color: var(--primary) !important;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .steps li {
+                padding-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="icon.png" alt="DigiJar" width="80" height="80" style="border-radius: 20px;">
+            </div>
+            <h1>DigiJar</h1>
+            <p class="subtitle">Delete Your Data</p>
+            
+            <nav class="nav-links">
+                <a href="index.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2>How to Delete Your Data</h2>
+                <p>DigiJar stores all your data locally on your device. You have full control over your data and can delete it at any time directly from within the app.</p>
+                
+                <ol class="steps">
+                    <li>
+                        <strong>Open DigiJar</strong>
+                        <span>Launch the DigiJar app on your Android device</span>
+                    </li>
+                    <li>
+                        <strong>Go to Settings</strong>
+                        <span>Tap the gear icon (⚙️) in the top right corner of the home screen</span>
+                    </li>
+                    <li>
+                        <strong>Find "Clear All Data"</strong>
+                        <span>Scroll down to the "Data & Storage" section</span>
+                    </li>
+                    <li>
+                        <strong>Confirm Deletion</strong>
+                        <span>Tap "Clear All Data" and confirm when prompted</span>
+                    </li>
+                </ol>
+
+                <div class="warning-box">
+                    <h3>⚠️ Important</h3>
+                    <p>This action is permanent and cannot be undone. All your savings history, achievements, streaks, and preferences will be permanently deleted.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>What Data is Deleted?</h2>
+                <p>When you clear your data, the following information is permanently removed:</p>
+                
+                <table class="data-table">
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Status After Deletion</th>
+                    </tr>
+                    <tr>
+                        <td>Savings history & records</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                    <tr>
+                        <td>Streak data & milestones</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                    <tr>
+                        <td>Achievements & XP progress</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                    <tr>
+                        <td>Savings goals</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                    <tr>
+                        <td>App preferences & settings</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                    <tr>
+                        <td>Unlocked themes & customizations</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                    <tr>
+                        <td>Consent preferences</td>
+                        <td class="deleted">✓ Permanently deleted</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="section">
+                <h2>Data Retention</h2>
+                <p>DigiJar does not retain any of your personal data after deletion. Since all data is stored locally on your device:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; color: var(--text-muted);">• Data is deleted immediately when you use "Clear All Data"</li>
+                    <li style="padding: 8px 0; color: var(--text-muted);">• No backup copies are kept on external servers</li>
+                    <li style="padding: 8px 0; color: var(--text-muted);">• We have no access to your data at any time</li>
+                    <li style="padding: 8px 0; color: var(--text-muted);">• Uninstalling the app also removes all local data</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Third-Party Data</h2>
+                <p>If you consented to personalized ads, Google AdMob may have collected some advertising data. To manage this:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; color: var(--text-muted);">• Visit <a href="https://myaccount.google.com/data-and-privacy" style="color: var(--primary);">Google Account Settings</a> to manage your ad preferences</li>
+                    <li style="padding: 8px 0; color: var(--text-muted);">• You can opt out of personalized ads in DigiJar's consent settings</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Need Help?</h2>
+                <p>If you have any questions about deleting your data or need assistance, please contact us through the Google Play Store listing.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 DigiJar by Kv4u. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
