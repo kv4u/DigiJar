@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiJar - Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: var(--bg-card);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        .section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.1);
+        }
+
+        .section.warning {
+            border-color: var(--warning);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section.warning h2 {
+            color: var(--warning);
+        }
+
+        .section.warning h2::before {
+            background: var(--warning);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            color: var(--text-muted);
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 8px;
+        }
+
+        .section.warning li::before {
+            color: var(--warning);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left-color: var(--warning);
+        }
+
+        .highlight p {
+            margin: 0;
+            color: var(--text);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .nav-links a.active {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🏺</div>
+            <h1>DigiJar</h1>
+            <p class="subtitle">Build your saving habit, one coin at a time</p>
+            <span class="last-updated">Last updated: December 5, 2025</span>
+            
+            <nav class="nav-links">
+                <a href="index.html">Privacy Policy</a>
+                <a href="terms.html" class="active">Terms of Service</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2>Acceptance of Terms</h2>
+                <p>By downloading, installing, or using DigiJar, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.</p>
+            </section>
+
+            <section class="section">
+                <h2>Description of Service</h2>
+                <p>DigiJar is a personal savings tracking application designed to help users build daily saving habits through gamification. The app allows you to track virtual "coins" representing your savings goals.</p>
+            </section>
+
+            <section class="section">
+                <h2>User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the app only for personal, non-commercial purposes</li>
+                    <li>Not attempt to reverse engineer or modify the app</li>
+                    <li>Not use the app for any illegal purposes</li>
+                    <li>Provide accurate information when required</li>
+                </ul>
+            </section>
+
+            <section class="section warning">
+                <h2>⚠️ Financial Disclaimer</h2>
+                <div class="highlight warning">
+                    <p><strong>IMPORTANT:</strong> DigiJar is a motivational and tracking tool only.</p>
+                </div>
+                <p>DigiJar does <strong>NOT</strong>:</p>
+                <ul>
+                    <li>Provide financial advice</li>
+                    <li>Connect to real bank accounts</li>
+                    <li>Handle real money transactions</li>
+                    <li>Guarantee any financial outcomes</li>
+                </ul>
+                <p>The "coins" and "savings" in the app are virtual representations for tracking purposes only. Always consult a qualified financial advisor for actual financial decisions.</p>
+            </section>
+
+            <section class="section">
+                <h2>Advertisements</h2>
+                <p>DigiJar displays advertisements through Google AdMob. By using the app, you acknowledge that ads will be displayed. You may choose to watch optional rewarded ads to earn in-app rewards.</p>
+            </section>
+
+            <section class="section">
+                <h2>Intellectual Property</h2>
+                <p>All content, features, and functionality of DigiJar are owned by us and are protected by international copyright, trademark, and other intellectual property laws.</p>
+            </section>
+
+            <section class="section">
+                <h2>Limitation of Liability</h2>
+                <p>DigiJar is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of the app, including but not limited to data loss or device issues.</p>
+            </section>
+
+            <section class="section">
+                <h2>Termination</h2>
+                <p>You may stop using DigiJar at any time by uninstalling the app. We reserve the right to terminate or suspend access to the app at our discretion.</p>
+            </section>
+
+            <section class="section">
+                <h2>Changes to Terms</h2>
+                <p>We may update these Terms of Service from time to time. Continued use of the app after changes constitutes acceptance of the new terms.</p>
+            </section>
+
+            <section class="section">
+                <h2>Governing Law</h2>
+                <p>These terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+            </section>
+
+            <section class="section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about these Terms of Service, please reach out through the app store listing or contact us at the email provided in the Google Play Store.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 DigiJar by Kv4u. All rights reserved.</p>
+            <div class="app-badge">
+                <span>🏺</span>
+                <span>Available on Google Play</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
